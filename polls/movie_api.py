@@ -43,8 +43,7 @@ def get_data(movie):
         response.append({"Actors : ": actors})
         return json.dumps(response)
     except:
-        print "Not Found! or a future movie"
-        exit()
+        return "Not a movie or a future movie"
 
 movie = "lagaan"
 get_data(movie)
