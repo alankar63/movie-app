@@ -2,11 +2,11 @@ import movie_api
 from django.http import HttpResponse
 
 
-def hello(request):
+def wrong_link(request):
     return HttpResponse("Wrong link.please enter correctly")
 
 
-def index(request, movie):
+def info(request, movie):
     info_str = movie_api.get_data(movie)
     return HttpResponse(info_str)
 
