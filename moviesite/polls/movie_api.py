@@ -34,14 +34,15 @@ def get_data(movie):
             directors.append(re.search('\>(.*?)\<', director_garbage).group(1))
 
         votes = soup.find('span', itemprop='ratingCount').contents[0]
-        response = []
-        response.append({"Movie : ": title})
-        response.append({"Rating: ": rating})
-        response.append({"Votes ": votes})
-        response.append({"Release Year : ": year})
-        response.append({"Director : ": directors})
-        response.append({"Actors : ": actors})
-        return json.dumps(response)
+        data = {}
+        data['Movie'] = title
+        data['Rating'] = rating
+        data['Votes'] = votes
+        data['Release year'] = year
+        data['Director'] = directors
+        data['Actor'] = actors
+        json_result = json.dumps(data)
+        return json_result
     except:
         return "Not a movie or a future movie"
 
